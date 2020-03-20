@@ -6,7 +6,7 @@ from folium.plugins import FastMarkerCluster
 
 m = folium.Map([40.0690994, 45.0381889], zoom_start=8)
 
-url = r'C:/Users/arturp/Downloads/mygeodata/gadm36_ARM_1.geojson'
+url = r'./gadm36_ARM_1.geojson'
 stripes = plugins.pattern.StripePattern(angle=-45)
 stripes.add_to(m)
 
