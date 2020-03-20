@@ -3,8 +3,16 @@ from folium import plugins
 from folium.plugins import MarkerCluster
 from folium.plugins import FastMarkerCluster
 
+import pandas as pd
+
+
+
+
 
 m = folium.Map([40.0690994, 45.0381889], zoom_start=8)
+
+df = pd.read_csv('./data.csv')
+df.head()
 
 url = r'./gadm36_ARM_1.geojson'
 stripes = plugins.pattern.StripePattern(angle=-45)
@@ -32,11 +40,11 @@ def style_function(feature):
     return default_style
 	
 
+popup_text=""
+for index, row in df.iterrows():
+    popup_text='Հաստատված դեպքերի ընդհանուր քանակը - '+str(row['cases'])+'</br>'+'Բուժվածներ - '+str(row['recovered'])+'</br>'+'Մահվան ելքեր - '+str(row['deth'])
+    folium.Marker([row['Latitude'], row['Longitude']], popup=popup_text, icon=folium.Icon(color='red', icon='info-sign')).add_to(m)
 
-
-
-
-folium.Marker([40.0691,45.0382], popup='<p>Armenia - 19.03.2020</p><p>Հաստատված դեպքերի ընդհանուր քանակը - 136 </p> <p>Բուժվածներ - 1</p><p> Մահվան ելքեր - 0</p>', icon=folium.Icon(color='red', icon='info-sign')).add_to(m)
 
 
 # Adding remote GeoJSON as additional layer.
