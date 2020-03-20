@@ -36,7 +36,7 @@ def style_function(feature):
 
 
 
-folium.Marker([40.0691,45.0382], popup='<p>Armenia - 19.03.2020</p><p>Հաստատված դեպքերի ընդհանուր քանակը - 136 </p> <p>Բուժվածներ - 1</p><p> Մահվան ելքեր - 0</p>').add_to(m)
+folium.Marker([40.0691,45.0382], popup='<p>Armenia - 19.03.2020</p><p>Հաստատված դեպքերի ընդհանուր քանակը - 136 </p> <p>Բուժվածներ - 1</p><p> Մահվան ելքեր - 0</p>', icon=folium.Icon(color='red', icon='info-sign')).add_to(m)
 
 
 # Adding remote GeoJSON as additional layer.
